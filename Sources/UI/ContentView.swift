@@ -241,6 +241,27 @@ public struct ContentView: View {
                         .disabled(viewModel.isConverting)
                     }
                 }
+
+                Divider()
+
+                HStack(spacing: 8) {
+                    Toggle(isOn: Binding(
+                        get: { !viewModel.stripAudio },
+                        set: { viewModel.stripAudio = !$0 }
+                    )) {
+                        HStack(spacing: 4) {
+                            Text("Preserve audio track")
+                                .font(.caption)
+                            Text("(stripping audio is recommended for live wallpapers)")
+                                .font(.caption2)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .toggleStyle(.checkbox)
+                    .disabled(viewModel.isConverting)
+
+                    Spacer()
+                }
             }
         }
         .padding(14)
@@ -288,18 +309,7 @@ public struct ContentView: View {
                         Spacer()
                     }
 
-                    HStack {
-                        Text("Audio Track:")
-                            .font(.caption)
-                            .frame(width: 100, alignment: .leading)
 
-                        Toggle("Strip audio (Recommended for live wallpapers)", isOn: $viewModel.stripAudio)
-                            .toggleStyle(.checkbox)
-                            .font(.caption)
-                            .disabled(viewModel.isConverting)
-
-                        Spacer()
-                    }
                 }
                 .padding(.top, 8)
             } label: {
