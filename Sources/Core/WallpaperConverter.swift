@@ -137,7 +137,7 @@ public final class WallpaperConverter: @unchecked Sendable {
         onPhaseChanged(.encoding)
         onLog("▶ Starting conversion for: \(sourceURL.lastPathComponent)")
         onLog("Using ffmpeg at: \(ffmpegURL.path)")
-        onLog("Encoding settings: CRF \(options.crf), Preset \(options.preset), Keyint \(options.keyint), StripAudio: \(options.stripAudio)")
+        onLog("Encoding settings: CRF \(options.crf), Preset \(options.preset), Keyint \(options.keyint), RemoveAudio: \(options.stripAudio)")
 
         let sessionID = UUID().uuidString
         let tempDir = fm.temporaryDirectory.appendingPathComponent("JemConverter_\(sessionID)", isDirectory: true)

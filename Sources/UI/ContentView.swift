@@ -252,7 +252,7 @@ public struct ContentView: View {
                         HStack(spacing: 4) {
                             Text("Preserve audio track")
                                 .font(.caption)
-                            Text("(stripping audio is recommended for live wallpapers)")
+                            Text("(removing audio is recommended for live wallpapers)")
                                 .font(.caption2)
                                 .foregroundColor(.secondary)
                         }
